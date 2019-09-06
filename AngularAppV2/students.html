@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+
+</head>
+<body ng-app="app">
+    <div ng-controller="DemoCtrl1" layout="column" ng-cloak>
+        <md-content class="md-padding">
+            <form ng-submit="$event.preventDefault()">
+                <p id="autocompleteDescription">
+                </p>
+                <label id="favoriteStateLabel">Search by Students Name</label>
+                <md-autocomplete ng-disabled="isDisabled"
+                                 md-no-cache="noCache"
+                                 md-selected-item="students"
+                                 md-search-text="inputText"
+                                 md-selected-item-change="selectedStudentsName(students)"
+                                 md-items="students in searchStudents(inputText)"
+                                 md-item-text="students.studentName"
+                                 md-min-length="0"
+                                 input-aria-labelledby="favoriteStateLabel"
+                                 input-aria-describedby="autocompleteDetailedDescription">
+                    <md-item-template>
+                        <span md-highlight-text="inputText" md-highlight-flags="^i">{{students.studentName}}</span>
+                    </md-item-template>
+                    <md-not-found>
+                        No states matching "{{inputText}}" were found.
+
+                    </md-not-found>
+                </md-autocomplete>
+
+
+                <md-input-container flex>
+                    <label>Name</label>
+                    <input ng-model="myStudents.studentName" readonly>
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Age</label>
+                    <input ng-model="myStudents.studentAge" readonly>
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Department</label>
+                    <input ng-model="myStudents.studentDept" readonly>
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Grade</label>
+                    <input ng-model="myStudents.studentGrade" readonly>
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Address</label>
+                    <input ng-model="myStudents.studentAddress" readonly>
+                </md-input-container>
+
+            </form>
+        </md-content>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+    <script src="app/controllers/demoController.js" defer></script>
+
+</body>
+</html>
